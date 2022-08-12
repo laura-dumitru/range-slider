@@ -10,6 +10,8 @@ slider.oninput = function (input) {
 
   if (options.includes(this.value)) {
     console.log(`I am ${this.value}% happy`);
+  } else {
+    console.log("I am not in the array!");
   }
 };
 
@@ -17,6 +19,4 @@ slider.oninput = function (input) {
 //Breakpoints for Custom events at 25/50/75%
 //but if someone puts their input at around 35% for example, it should log the closest custom event, in this instance being 25%.
 
-//an array
-
-//let slider = document.getElementById("myRange");
+//math.ceil
