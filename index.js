@@ -20,7 +20,3 @@ slider.oninput = function (input) {
 //an array
 
 //let slider = document.getElementById("myRange");
-
-/*for (i = 0; i < options.length; i++) {
-  console.log(options);
-}*/
