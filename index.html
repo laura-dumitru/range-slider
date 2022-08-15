@@ -8,18 +8,28 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <h3>How happy are you?</h3>
-    <div class="slidecontainer">
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="0"
-        class="slider"
-        id="myRange"
-      />
+    <div id="line">
+      <svg class="sliderCircle">
+        <circle class="slider" cx="0" cy="50" r="6" />
+      </svg>
+      <svg class="sliderLine">
+        <path class="line" d="M 0 50 300 50"></path>
+        <!-- M x y x y -->
+      </svg>
     </div>
-    <p id="result"></p>
+
+    <div id="arc">
+      <svg class="arcCircle">
+        <circle class="slider" cx="0" cy="50" r="6" />
+      </svg>
+      <svg class="sliderArc">
+        <path
+          class="arc"
+          d="M64, 128c0-35.3, 28.7-64, 64-64s64, 28.7, 64,64"
+        ></path>
+      </svg>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>

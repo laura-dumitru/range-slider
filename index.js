@@ -1,6 +1,7 @@
-let slider = document.getElementById("myRange");
-let result = document.getElementById("result");
-result.innerHTML = slider.value; // Display the default slider value
+let slider = document.querySelector(".sliderLine");
+let circle = document.querySelector(".sliderCircle");
+
+//result.innerHTML = slider.value; // Display the default slider value
 
 let options = ["25", "50", "75"];
 
@@ -20,3 +21,9 @@ slider.oninput = function (input) {
 //but if someone puts their input at around 35% for example, it should log the closest custom event, in this instance being 25%.
 
 //math.ceil
+
+let line = document.querySelector(".line");
+
+console.log(line.attributes.d.value);
+
+//line.attributes.d.value = "M 0 100 800 100";
