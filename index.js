@@ -1,45 +1,11 @@
-/*let slider = document.querySelector(".sliderLine");
-let circle = document.querySelector(".sliderCircle");
+let DEG = 180 / Math.PI;
 
-//result.innerHTML = slider.value; // Display the default slider value
+let drag = document.querySelector("#drag");
+let path = document.querySelector(".path");
 
-let options = ["25", "50", "75"];
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function (input) {
-  result.innerHTML = this.value;
-
-  if (options.includes(this.value)) {
-    console.log(`I am ${this.value}% happy`);
-  } else {
-    console.log("I am not in the array!");
-  }
-};
-
-// a range from 0 to 100, 0 being very sad, 100 very happy.
-//Breakpoints for Custom events at 25/50/75%
-//but if someone puts their input at around 35% for example, it should log the closest custom event, in this instance being 25%.
-
-//math.ceil
-
-let line = document.querySelector(".line");
-
-console.log(line.attributes.d.value);
-
-//line.attributes.d.value = "M 0 100 800 100";
-*/
-
-// Closest Point on Path
-// https://bl.ocks.org/mbostock/8027637
-
-var DEG = 180 / Math.PI;
-
-var drag = document.querySelector("#drag");
-var path = document.querySelector(".path");
-
-var pathLength = path.getTotalLength() || 0;
-var startPoint = path.getPointAtLength(0);
-var startAngle = getRotation(startPoint, path.getPointAtLength(0.1));
+let pathLength = path.getTotalLength() || 0;
+let startPoint = path.getPointAtLength(0);
+let startAngle = getRotation(startPoint, path.getPointAtLength(0.1));
 
 TweenLite.set(drag, {
   transformOrigin: "center",
@@ -61,7 +27,7 @@ TweenLite.set(".container", {
 });
 
 function pointModifier(point) {
-  var p = closestPoint(path, pathLength, point);
+  let p = closestPoint(path, pathLength, point);
 
   TweenLite.set(drag, {
     rotation: p.rotation,
@@ -71,14 +37,14 @@ function pointModifier(point) {
 }
 
 function closestPoint(pathNode, pathLength, point) {
-  var precision = 8,
+  let precision = 8,
     best,
     bestLength,
     bestDistance = Infinity;
 
   // linear scan for coarse approximation
   for (
-    var scan, scanLength = 0, scanDistance;
+    let scan, scanLength = 0, scanDistance;
     scanLength <= pathLength;
     scanLength += precision
   ) {
@@ -94,7 +60,7 @@ function closestPoint(pathNode, pathLength, point) {
   // binary search for precise estimate
   precision /= 2;
   while (precision > 0.5) {
-    var before, after, beforeLength, afterLength, beforeDistance, afterDistance;
+    let before, after, beforeLength, afterLength, beforeDistance, afterDistance;
     if (
       (beforeLength = bestLength - precision) >= 0 &&
       (beforeDistance = distance2(
@@ -118,8 +84,8 @@ function closestPoint(pathNode, pathLength, point) {
     }
   }
 
-  var len2 = bestLength + (bestLength === pathLength ? -0.1 : 0.1);
-  var rotation = getRotation(best, pathNode.getPointAtLength(len2));
+  let len2 = bestLength + (bestLength === pathLength ? -0.1 : 0.1);
+  let rotation = getRotation(best, pathNode.getPointAtLength(len2));
 
   return {
     point: best,
@@ -128,14 +94,14 @@ function closestPoint(pathNode, pathLength, point) {
   };
 
   function distance2(p) {
-    var dx = p.x - point.x,
+    let dx = p.x - point.x,
       dy = p.y - point.y;
     return dx * dx + dy * dy;
   }
 }
 
 function getRotation(p1, p2) {
-  var dx = p2.x - p1.x;
-  var dy = p2.y - p1.y;
+  let dx = p2.x - p1.x;
+  let dy = p2.y - p1.y;
   return Math.atan2(dy, dx);
 }
