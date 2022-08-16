@@ -8,28 +8,21 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="line">
-      <svg class="sliderCircle">
-        <circle class="slider" cx="0" cy="50" r="6" />
-      </svg>
-      <svg class="sliderLine">
-        <path class="line" d="M 0 50 300 50"></path>
-        <!-- M x y x y -->
-      </svg>
-    </div>
+    <svg>
+      <path class="path" />
+      <g id="drag">
+        <circle class="slider" />
+      </g>
+    </svg>
 
-    <div id="arc">
-      <svg class="arcCircle">
-        <circle class="slider" cx="0" cy="50" r="6" />
-      </svg>
-      <svg class="sliderArc">
-        <path
-          class="arc"
-          d="M64, 128c0-35.3, 28.7-64, 64-64s64, 28.7, 64,64"
-        ></path>
-      </svg>
-    </div>
-
+    <!--svg>
+        <path id="path" d="M 100 50 400 50" />
+        <g id="drag">
+          <circle class="oval" cx="15" cy="15" r="15" />
+        </g>
+      </svg-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
