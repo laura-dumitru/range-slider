@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+/*
 #arc,
 #line {
   display: flex;
@@ -19,13 +20,13 @@
   stroke: #252422;
   stroke-width: 1px;
   position: relative;
-  height: 1000; /* bigger than your svg */
+  height: 1000; /* bigger than your svg * /
   width: 1000;
 }
-/*
+/ *
 .line { /* :hover * /
   d: path("M 0 50 300 50");
-}*/
+}* /
 
 .sliderLine,
 .sliderArc,
@@ -38,4 +39,53 @@
 .sliderCircle,
 .arcCircle {
   fill: #252422;
+}
+
+.arcCircle {
+  right: 100px;
+}
+*/
+
+/*
+.arcContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.lineContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 300px;
+}*/
+
+body {
+  padding: 2em;
+}
+
+svg {
+  overflow: visible;
+}
+
+.slider {
+  fill: #fc1c50;
+  stroke-width: 1px;
+
+  --size: 10; /* px */
+  r: var(--size);
+  cx: var(--size);
+  cy: var(--size);
+}
+
+.path {
+  fill: none;
+  stroke: #d4d4d4;
+  stroke-width: 4px;
+  stroke-linecap: round;
+
+  /* M ?, ?c-?, ?-?, ?-?s?, ?, ?, ? */
+  d: path("M128, 256c0-70.6, 57.4-128, 128-128s128, 57.4, 128,128");
+
+  /* M x y x y */
+  /*d: path("M 0 0 256 0");*/
 }
