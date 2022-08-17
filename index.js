@@ -7,6 +7,11 @@ let pathLength = path.getTotalLength() || 0;
 let startPoint = path.getPointAtLength(0);
 let startAngle = getRotation(startPoint, path.getPointAtLength(0.1));
 
+let endPoint = path.getPointAtLength(1);
+
+//path.onInput
+//console.log(pathLength);
+
 TweenLite.set(drag, {
   transformOrigin: "center",
   rotation: startAngle + "_rad",
@@ -16,7 +21,7 @@ TweenLite.set(drag, {
   y: startPoint.y,
 });
 
-var draggable = new Draggable(drag, {
+let draggable = new Draggable(drag, {
   liveSnap: {
     points: pointModifier,
   },
@@ -84,8 +89,30 @@ function closestPoint(pathNode, pathLength, point) {
     }
   }
 
-  let len2 = bestLength + (bestLength === pathLength ? -0.1 : 0.1);
-  let rotation = getRotation(best, pathNode.getPointAtLength(len2));
+  let position = bestLength + (bestLength === pathLength ? -0.1 : 0.1);
+  let rotation = getRotation(best, pathNode.getPointAtLength(position));
+
+  let percent = Math.round((position / pathLength) * 100); //bestLength
+
+  console.log(percent);
+
+  let options = [25, 50, 75];
+  let answer = document.querySelector(".answer");
+
+  if (options.includes(percent)) {
+    answer.innerHTML = `I am ${percent} % happy`;
+    //console.log(`I am ${percent} % happy`);
+  } else {
+    //console.log(`I am ${percent} % happy.`);
+    answer.innerHTML = "I am not happy";
+  }
+
+  //64 = 25%
+  //128 = 50%
+  //192 = 75%
+  //if slider stops at 35% for example, log the closest event : 25% in this example
+  //When the user lets go of the slider, show the most common answer as a pop up.
+  //This will be live data.
 
   return {
     point: best,
