@@ -98,14 +98,14 @@ function closestPoint(pathNode, pathLength, point) {
 
   let options = [25, 50, 75];
   let answer = document.querySelector(".answer");
-
+  /*
   if (options.includes(percent)) {
     answer.innerHTML = `I am ${percent} % happy`;
     //console.log(`I am ${percent} % happy`);
   } else {
     //console.log(`I am ${percent} % happy.`);
     answer.innerHTML = "I am not happy";
-  }
+  }*/
 
   //64 = 25%
   //128 = 50%

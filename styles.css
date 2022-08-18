@@ -23,17 +23,21 @@ svg {
   cy: var(--size);
 }
 
+.container {
+  margin-top: 4em;
+}
+
 .path {
   fill: none;
   stroke: #d4d4d4;
   stroke-width: 4px;
   stroke-linecap: round;
 
-  /* M ?, ?c-?, ?-?, ?-?s?, ?, ?, ? */
-  /*d: path("M128, 256c0-70.6, 57.4-128, 128-128s128, 57.4, 128,128");*/
-
   /* M x y x y */
-  d: path("M 0 0 256 0");
+  /*d: path("M 0 0 256 0");*/
+
+  /* M x y A rx:ry°, xr°, >/<180°?, flip?, x y */
+  d: path("M 0 0 A 45 45, 0, 0, 1, 200 0");
 }
 
 .answer {
