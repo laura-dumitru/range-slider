@@ -98,10 +98,17 @@ function closestPoint(pathNode, pathLength, point) {
 
   let percent = Math.round((position / pathLength) * 100); //bestLength
 
-  console.log(percent);
+  //console.log(percent);
 
-  let options = [25, 50, 75];
+  let options = [25, 50, 75]; // %
   let answer = document.querySelector(".answer");
+
+  let nearest = options.reduce((previous, current) =>
+    Math.abs(current - percent) < Math.abs(previous - percent)
+      ? current
+      : previous
+  );
+  console.log(nearest);
 
   if (options.includes(percent)) {
     answer.innerHTML = `I am ${percent} % happy`;
@@ -110,13 +117,6 @@ function closestPoint(pathNode, pathLength, point) {
     //console.log(`I am ${percent} % happy.`);
     answer.innerHTML = "I am not happy";
   }
-
-  //64 = 25%
-  //128 = 50%
-  //192 = 75%
-  //if slider stops at 35% for example, log the closest event : 25% in this example
-  //When the user lets go of the slider, show the most common answer as a pop up.
-  //This will be live data.
 
   return {
     point: best,
@@ -137,8 +137,8 @@ function getRotation(p1, p2) {
   return Math.atan2(dy, dx);
 }
 
-//make slider less snappy
-//change color when dragged
 //move into celtra
-//make it round to the nearest % and log in the console
+
 //make fake poll with fake data and make it show the most common answer
+//snap: function(endValue) { return Math.round(endValue / 50) * 50;
+//As an Array - If you use an array of values, InertiaPlugin will first plot the natural landing position and then loop through the array and find the closest number (as long as it’s not outside any bounds you defined). For example, to have it choose the closest number from 10, 50, 200, and 450, you’d do snap: [10,50,200,450].
