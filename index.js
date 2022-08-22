@@ -9,7 +9,6 @@ let startAngle = getRotation(startPoint, path.getPointAtLength(0.1));
 
 let endPoint = path.getPointAtLength(1);
 
-//path.onInput
 //console.log(pathLength);
 
 TweenLite.set(drag, {
@@ -92,20 +91,25 @@ function closestPoint(pathNode, pathLength, point) {
   let position = bestLength + (bestLength === pathLength ? -0.1 : 0.1);
   let rotation = getRotation(best, pathNode.getPointAtLength(position));
 
+  //
+  const progress = document.querySelector(".progress");
+  progress.style.d = `path('M 0 0 ${position} 0')`;
+  //progress.style.d = `path('M 0 100 A 45 45, 0, 0, 1, 200 100')`;
+
   let percent = Math.round((position / pathLength) * 100); //bestLength
 
   console.log(percent);
 
   let options = [25, 50, 75];
   let answer = document.querySelector(".answer");
-  /*
+
   if (options.includes(percent)) {
     answer.innerHTML = `I am ${percent} % happy`;
     //console.log(`I am ${percent} % happy`);
   } else {
     //console.log(`I am ${percent} % happy.`);
     answer.innerHTML = "I am not happy";
-  }*/
+  }
 
   //64 = 25%
   //128 = 50%
@@ -132,3 +136,9 @@ function getRotation(p1, p2) {
   let dy = p2.y - p1.y;
   return Math.atan2(dy, dx);
 }
+
+//make slider less snappy
+//change color when dragged
+//move into celtra
+//make it round to the nearest % and log in the console
+//make fake poll with fake data and make it show the most common answer

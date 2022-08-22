@@ -5,16 +5,21 @@
 
 .container {
   display: flex;
-  justify-content: center;
-  margin-top: 2em;
+  flex-direction: column;
+  margin: 2rem;
 }
 
 svg {
-  overflow: visible;
+  overflow: visible !important;
+}
+:root {
+  --slider-background-color: #d4d4d4;
+  --slider-button-color: #fc1c50;
+  --slider-progress-color: var(--slider-button-color);
 }
 
 .slider {
-  fill: #fc1c50;
+  fill: var(--slider-button-color);
   stroke-width: 1px;
   cursor: pointer;
   transition: 0.4s all ease-out;
@@ -25,15 +30,23 @@ svg {
   cy: var(--size);
 }
 
-.path {
+.path,
+.progress {
   fill: none;
-  stroke: #d4d4d4;
+  stroke: var(--slider-background-color);
   stroke-width: 4px;
   stroke-linecap: round;
 
   /* M x y x y */
-  /*d: path("M 0 0 200 0");*/
+  d: path("M 0 0 200 0");
 
   /* M x y A rx:ry°, xr°, >/<180°?, flip?, x y */
-  d: path("M 0 100 A 45 45, 0, 0, 1, 200 100");
+  /*d: path("M 0 100 A 45 45, 0, 0, 1, 200 100");*/
+}
+
+.progress {
+  stroke: var(--slider-progress-color);
+
+  d: path("M 0 0 0 0");
+  /*d: path("M 0 100 A 45 45, 0, 0, 1, 200 100");*/
 }
