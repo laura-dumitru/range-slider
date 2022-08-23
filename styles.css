@@ -1,28 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-}
-
 svg {
   overflow: visible !important;
 }
+
 :root {
   --slider-background-color: #d4d4d4;
   --slider-button-color: #fc1c50;
   --slider-progress-color: var(--slider-button-color);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .slider {
   fill: var(--slider-button-color);
   stroke-width: 1px;
   cursor: pointer;
-  transition: 0.4s all ease-out;
 
   --size: 8; /* px */
   r: var(--size);
@@ -37,16 +43,37 @@ svg {
   stroke-width: 4px;
   stroke-linecap: round;
 
-  /* M x y x y */
-  d: path("M 0 0 200 0");
+  /* Straight line slider path
+    M x y, x y
+  */
+  d: path("M 0 0, 320 0");
 
-  /* M x y A rx:ry°, xr°, >/<180°?, flip?, x y */
-  /*d: path("M 0 100 A 45 45, 0, 0, 1, 200 100");*/
+  /* Arc slider path
+    M x y, A rx:ry°, xr°, >/<180°?, flip?, x y
+  */
+  /*d: path("M 0 100, A 45 45, 0, 0, 1, 200 100");*/
 }
 
-.progress {
-  stroke: var(--slider-progress-color);
+h4 {
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 32px;
+}
+.options {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 2rem;
+  margin-left: 4rem;
+}
 
-  d: path("M 0 0 0 0");
-  /*d: path("M 0 100 A 45 45, 0, 0, 1, 200 100");*/
+.options li {
+  padding: 12px;
+}
+
+.options .fa {
+  color: var(--slider-button-color);
+  font-size: 16px;
+  position: relative;
+  top: 12px;
 }
