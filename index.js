@@ -93,30 +93,47 @@ function closestPoint(pathNode, pathLength, point) {
 
   //
   const progress = document.querySelector(".progress");
-  progress.style.d = `path('M 0 0 ${position} 0')`;
-  //progress.style.d = `path('M 0 100 A 45 45, 0, 0, 1, 200 100')`;
+  progress.style.stroke = "var(--slider-progress-color)";
+  progress.style.d = `path('M 0 0, ${position} 0')`;
 
   let percent = Math.round((position / pathLength) * 100); //bestLength
 
   //console.log(percent);
 
-  let options = [25, 50, 75]; // %
+  let options = {
+    25: "walk",
+    50: "take a bath",
+    75: "music",
+  };
+
+  //let options = [25, 50, 75]; // %
   let answer = document.querySelector(".answer");
 
-  let nearest = options.reduce((previous, current) =>
+  let nearest = Object.keys(options).reduce((previous, current) =>
     Math.abs(current - percent) < Math.abs(previous - percent)
       ? current
       : previous
   );
-  console.log(nearest);
-
+  //console.log(nearest);
+  /*
   if (options.includes(percent)) {
     answer.innerHTML = `I am ${percent} % happy`;
     //console.log(`I am ${percent} % happy`);
   } else {
     //console.log(`I am ${percent} % happy.`);
     answer.innerHTML = "I am not happy";
-  }
+  }*/
+  /*
+  if (nearest === options[0]) {
+    console.log("I choose walk");
+  } else if (nearest === options[1]) {
+    console.log("I choose take a bath");
+  } else if (nearest === options[2]) {
+    console.log("I choose music");
+  }*/
+
+  //console.log(`I choose ${options[nearest]}.`);
+  answer.innerHTML = `I choose ${options[nearest]}.`;
 
   return {
     point: best,
