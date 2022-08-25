@@ -100,13 +100,30 @@ function closestPoint(pathNode, pathLength, point) {
 
   //console.log(percent);
 
+  //let options = [25, 50, 75]; // %
   let options = {
     25: "walk",
     50: "take a bath",
     75: "music",
   };
 
-  //let options = [25, 50, 75]; // %
+  let data = {
+    walk: 1000,
+    bath: 1500,
+    music: 500,
+  };
+
+  let totals = Object.values(data);
+  let max = Math.max(...totals);
+
+  //let [common] = Object.entries(data).find(([key, value]) => value === max);
+
+  let common = Object.entries(data).find(function (entries) {
+    return entries[1] === max;
+  });
+
+  console.log(common);
+
   let answer = document.querySelector(".answer");
 
   let nearest = Object.keys(options).reduce((previous, current) =>
