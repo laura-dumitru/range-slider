@@ -24,6 +24,9 @@ svg {
   flex-direction: column;
   align-items: center;
 }
+.container svg {
+  margin-left: 6rem;
+}
 
 .slider {
   fill: var(--slider-button-color);
@@ -44,20 +47,21 @@ svg {
   stroke-linecap: round;
 
   /* Straight line slider path
+  M stands for move
     M x y, x y
   */
-  d: path("M 0 0, 320 0");
+  /*d: path("M 0 0, 320 0");*/
 
   /* Arc slider path
-    M x y, A rx:ry°, xr°, >/<180°?, flip?, x y
-  */
-  /*d: path("M 0 100, A 45 45, 0, 0, 1, 200 100");*/
+    M x y, A rx:ry°, xr°, >/<180°?, flip?, x y*/
+
+  d: path("M 0 100, A 45 45, 0, 0, 1, 200 100");
 }
 
-h4 {
+h3 {
   font-weight: bolder;
   text-align: center;
-  margin-top: 32px;
+  margin: 40px;
 }
 .options {
   display: flex;
@@ -76,4 +80,10 @@ h4 {
   font-size: 16px;
   position: relative;
   top: 12px;
+}
+
+.answerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

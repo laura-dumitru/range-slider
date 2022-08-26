@@ -94,7 +94,11 @@ function closestPoint(pathNode, pathLength, point) {
   //
   const progress = document.querySelector(".progress");
   progress.style.stroke = "var(--slider-progress-color)";
-  progress.style.d = `path('M 0 0, ${position} 0')`;
+  //progress.style.d = `path('M 0 0, ${position} 0')`;
+
+  progress.style.d = `path('M 0 100, A 45 45, 0, 0, 1, ${best.x} ${best.y}')`;
+
+  //console.log((270 * Math.PI) / 180);
 
   let percent = Math.round((position / pathLength) * 100); //bestLength
 
@@ -107,10 +111,12 @@ function closestPoint(pathNode, pathLength, point) {
     75: "music",
   };
 
+  //insert data to fake a real response from other users
+
   let data = {
     walk: 1000,
     bath: 1500,
-    music: 500,
+    music: 5000,
   };
 
   let totals = Object.values(data);
@@ -118,14 +124,17 @@ function closestPoint(pathNode, pathLength, point) {
 
   //let [common] = Object.entries(data).find(([key, value]) => value === max);
 
-  let common = Object.entries(data).find(function (entries) {
+  let [common, votes] = Object.entries(data).find(function (entries) {
     return entries[1] === max;
   });
 
   console.log(common);
+  let commonAnswer = document.querySelector(".commonAnswer");
+  commonAnswer.innerHTML = `The most common answer is : ${common}, with ${votes} votes.`;
 
   let answer = document.querySelector(".answer");
 
+  //calculate the nearest %
   let nearest = Object.keys(options).reduce((previous, current) =>
     Math.abs(current - percent) < Math.abs(previous - percent)
       ? current
@@ -150,7 +159,7 @@ function closestPoint(pathNode, pathLength, point) {
   }*/
 
   //console.log(`I choose ${options[nearest]}.`);
-  answer.innerHTML = `I choose ${options[nearest]}.`;
+  answer.innerHTML = `I choose : ${options[nearest]}`;
 
   return {
     point: best,
