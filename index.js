@@ -94,9 +94,9 @@ function closestPoint(pathNode, pathLength, point) {
   //
   const progress = document.querySelector(".progress");
   progress.style.stroke = "var(--slider-progress-color)";
-  //progress.style.d = `path('M 0 0, ${position} 0')`;
+  progress.style.d = `path('M 0 0, ${position} 0')`;
 
-  progress.style.d = `path('M 0 100, A 45 45, 0, 0, 1, ${best.x} ${best.y}')`;
+  //progress.style.d = `path('M 0 100, A 45 45, 0, 0, 1, ${best.x} ${best.y}')`;
 
   //console.log((270 * Math.PI) / 180);
 

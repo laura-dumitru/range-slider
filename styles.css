@@ -50,12 +50,12 @@ svg {
   M stands for move
     M x y, x y
   */
-  /*d: path("M 0 0, 320 0");*/
+  d: path("M 0 0, 320 0");
 
   /* Arc slider path
     M x y, A rx:ry°, xr°, >/<180°?, flip?, x y*/
 
-  d: path("M 0 100, A 45 45, 0, 0, 1, 200 100");
+  /*d: path("M 0 100, A 45 45, 0, 0, 1, 200 100");*/
 }
 
 h3 {
