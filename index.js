@@ -94,9 +94,11 @@ function closestPoint(pathNode, pathLength, point) {
   //
   const progress = document.querySelector(".progress");
   progress.style.stroke = "var(--slider-progress-color)";
-  progress.style.d = `path('M 0 0, ${position} 0')`;
+  //progress.style.d = `path('M 0 0, ${position} 0')`;
+  progress.setAttribute("d", `M 0 0, ${position} 0`);
 
-  //progress.style.d = `path('M 0 100, A 45 45, 0, 0, 1, ${best.x} ${best.y}')`;
+  //Arch red line progress path
+  // progress.style.d = `path('M 0 100, A 45 45, 0, 0, 1, ${best.x} ${best.y}')`;
 
   //console.log((270 * Math.PI) / 180);
 
@@ -116,7 +118,7 @@ function closestPoint(pathNode, pathLength, point) {
   let data = {
     walk: 1000,
     bath: 1500,
-    music: 5000,
+    music: 900,
   };
 
   let totals = Object.values(data);

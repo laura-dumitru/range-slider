@@ -29,15 +29,25 @@ svg {
 }
 
 .slider {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 16px;
+  left: -96px;
+  background-color: var(--slider-button-color);
+  border-radius: 50%;
+}
+/*
+.slider {
   fill: var(--slider-button-color);
   stroke-width: 1px;
   cursor: pointer;
 
-  --size: 8; /* px */
+  --size: 8; /* px * /
   r: var(--size);
   cx: var(--size);
   cy: var(--size);
-}
+}*/
 
 .path,
 .progress {
@@ -50,7 +60,7 @@ svg {
   M stands for move
     M x y, x y
   */
-  d: path("M 0 0, 320 0");
+  /*d: path("M 0 0, 320 0"); Doesn't work on iOS! */
 
   /* Arc slider path
     M x y, A rx:ry°, xr°, >/<180°?, flip?, x y*/
